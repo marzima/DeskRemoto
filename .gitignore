@@ -1,0 +1,5 @@
+# Ignora file di Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.user

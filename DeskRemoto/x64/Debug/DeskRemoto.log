@@ -1,2 +1,3 @@
-﻿  DeskRemoto.cpp
+﻿  client.cpp
+LINK : warning LNK4075: '/INCREMENTAL' ignorato a causa della specifica di '/FORCE'
   DeskRemoto.vcxproj -> C:\Users\marzi.m\source\repos\DeskRemoto\x64\Debug\DeskRemoto.exe

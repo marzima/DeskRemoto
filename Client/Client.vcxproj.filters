@@ -14,23 +14,15 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="File di origine\src">
-      <UniqueIdentifier>{c6c3e5e1-9217-4ace-9a98-749c7a9c2b78}</UniqueIdentifier>
+      <UniqueIdentifier>{2861619f-bcfe-4fee-8ef4-7b13bf194f45}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File di origine\include">
-      <UniqueIdentifier>{68aa48a7-3cdd-4c7b-bcfe-caffad47a55a}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="client.cpp">
-      <Filter>File di origine\src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="common.h">
-      <Filter>File di origine\include</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="client1.cpp">
+      <Filter>File di origine\src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

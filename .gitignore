@@ -1,5 +1,15 @@
+# Ignora cartelle di build
+build/
+Debug/
+Release/
+x64/
+
 # Ignora file di Visual Studio
 .vs/
 *.sln
 *.vcxproj
 *.user
+
+# Ignora file temporanei
+*.log
+*.cache

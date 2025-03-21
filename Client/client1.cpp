@@ -7,6 +7,13 @@
 
 #pragma comment(lib, "ws2_32.lib")  // Linka la libreria Winsock
 
+int clientScreenWidth = GetSystemMetrics(SM_CXSCREEN);
+int clientScreenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+// Variabili globali
+HHOOK clientMouseHook;
+SOCKET sock;
+
 // Funzione per simulare il movimento del mouse
 void SimulateMouseMove(int x, int y) {
     // Normalizza le coordinate per lo schermo del client
@@ -59,6 +66,10 @@ void ReceiveData(SOCKET sock) {
 }
 
 int main() {
+    // In client.cpp (aggiungi all'inizio del main)
+
+    std::cout << "Risoluzione client: " << clientScreenWidth << "x" << clientScreenHeight << std::endl;
+
     // Inizializza Winsock
     WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {

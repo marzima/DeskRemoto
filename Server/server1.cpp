@@ -10,6 +10,8 @@
 HHOOK mouseHook;
 HHOOK keyboardHook;
 SOCKET clientSocket = INVALID_SOCKET;
+int serverScreenWidth = GetSystemMetrics(SM_CXSCREEN);
+int serverScreenHeight = GetSystemMetrics(SM_CYSCREEN);
 
 //FUNCTION: Send data to Client:
 void SendData(const std::string& data) {
@@ -25,10 +27,19 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
         int x = pMouseStruct->pt.x;
         int y = pMouseStruct->pt.y;
 
-        //Send coordinate and event type (movement, click...)
-        std::ostringstream oss;
-        oss << "Mouse_Move: " << x << " , " << y << "\n";
-        SendData(oss.str());
+        // Se il mouse è oltre il bordo destro del server
+        if (x >= serverScreenWidth) {
+            // Invia coordinate relative al client (es. x = 0)
+            std::ostringstream oss;
+            oss << "MOUSE_MOVE:" << 0 << "," << y << "\n";  // x = 0 sul client
+            SendData(oss.str());
+        }
+        // Altrimenti, invia le coordinate normali
+        else {
+            std::ostringstream oss;
+            oss << "MOUSE_MOVE:" << x << "," << y << "\n";
+            SendData(oss.str());
+        }
     }
     return CallNextHookEx(mouseHook, nCode, wParam, lParam);
 }
@@ -95,6 +106,8 @@ void StartServer() {
 }
 
 int main() {
+    std::cout << "Risoluzione server: " << serverScreenWidth << "x" << serverScreenHeight << std::endl;
+
     //Start server with separate thread:
     std::thread serverThread(StartServer);
     serverThread.detach();
